@@ -193,4 +193,5 @@ I am running this homework through Claude Code in a headless environment and can
 ---
 
 ## PR
-<!-- filled in after `gh pr create` -->
+
+- <https://github.com/NU-CS-Software-Studio-Spring-26/homework-5-andrewhxd/pull/1> — opened from `hw5` to `main`, then closed without merging per the homework instructions.
