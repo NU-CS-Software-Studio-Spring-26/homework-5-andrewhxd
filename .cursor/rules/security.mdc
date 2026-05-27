@@ -1,0 +1,16 @@
+---
+description: Security rules that always apply when editing this repo
+alwaysApply: true
+---
+
+# Security rules
+
+- Never write, log, echo, or commit secrets, API keys, OAuth tokens, or production credentials. If a value belongs in `Rails.application.credentials` or an env var, reference it that way — never inline.
+- Do not call `eval`, `instance_eval`, `class_eval`, `send`, or `public_send` on user-supplied input. Treat any value originating from `params`, request headers, URL segments, cookies, or external APIs as untrusted.
+- Do not call `html_safe`, `raw`, or `<%==` on untrusted strings. Use Rails' default escaping; build HTML with `content_tag`, `tag`, or `sanitize` with an explicit allowlist when needed.
+- Use parameterized queries (`where(name: name)` or `where("name = ?", name)`). Never string-interpolate user input into SQL, `order`, `group`, `select`, or `find_by_sql` arguments.
+- Do not disable CSRF (`skip_before_action :verify_authenticity_token`), mass-assignment protection (strong params), or any authentication callbacks. If a real exception is needed, justify it in the PR and scope it to the single action.
+- Do not weaken cookie or session settings (`httponly`, `secure`, `same_site`).
+- Do not commit `.env`, `config/master.key`, `config/credentials/*.key`, or any `*.pem` / `*.p12` files.
+- File uploads must validate content type and size; do not trust `params[:file].original_filename` for storage paths.
+- Redirects to user-supplied URLs must use an allowlist; never `redirect_to params[:return_to]` without validation.

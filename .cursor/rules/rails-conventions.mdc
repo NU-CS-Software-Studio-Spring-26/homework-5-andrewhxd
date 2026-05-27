@@ -1,0 +1,17 @@
+---
+description: Rails 8 conventions for the sample todo app
+alwaysApply: true
+---
+
+# Rails conventions
+
+- Target Rails 8.1, Ruby per `.ruby-version`. Do not propose code that requires a different runtime.
+- Prefer Turbo Streams over hand-written JavaScript for partial-page updates. `respond_to do |format|; format.turbo_stream; end` with a matching `app/views/<resource>/<action>.turbo_stream.erb`.
+- Keep migrations reversible — use `change` blocks; avoid raw SQL unless necessary. Generate with `bin/rails generate migration`, do not hand-author the timestamped filename.
+- Always use strong parameters; never `params.permit!` and never accept attributes not whitelisted.
+- Use `dom_id` / `dom_class` helpers for Turbo target identifiers — do not hardcode `"todo_#{id}"`.
+- Use `bin/rails generate` for controllers, models, mailers, channels, migrations rather than hand-writing boilerplate.
+- Keep the schema scoped to the todo app. Do not import models, migrations, fixtures, or partials from other projects.
+- Tests live under `test/` (Minitest). New features add at least one controller or system test that exercises the real request path.
+- View partials live alongside their resource (`app/views/todos/_*.html.erb`); shared partials go in `app/views/shared/`.
+- N+1 protection: when adding associations and iterating in a view, include the association in the controller query.
