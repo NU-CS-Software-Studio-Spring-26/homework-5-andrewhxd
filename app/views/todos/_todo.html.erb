@@ -4,4 +4,11 @@
     <%= todo.description %>
   </p>
 
+  <p>
+    <%= button_to (todo.high_priority? ? "★ High priority" : "☆ Normal"),
+                  toggle_priority_todo_path(todo),
+                  method: :patch,
+                  data: { turbo_method: :patch },
+                  form: { data: { turbo_stream: true } } %>
+  </p>
 </div>
