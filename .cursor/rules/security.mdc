@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Security rules
 
-- Never write, log, echo, or commit secrets, API keys, OAuth tokens, or production credentials. If a value belongs in `Rails.application.credentials` or an env var, reference it that way — never inline.
+- Never write, log, echo, or commit secrets, API keys, OAuth tokens, or production credentials. If a value belongs in `Rails.application.credentials` or an env var, reference it that way - never inline.
 - Do not call `eval`, `instance_eval`, `class_eval`, `send`, or `public_send` on user-supplied input. Treat any value originating from `params`, request headers, URL segments, cookies, or external APIs as untrusted.
 - Do not call `html_safe`, `raw`, or `<%==` on untrusted strings. Use Rails' default escaping; build HTML with `content_tag`, `tag`, or `sanitize` with an explicit allowlist when needed.
 - Use parameterized queries (`where(name: name)` or `where("name = ?", name)`). Never string-interpolate user input into SQL, `order`, `group`, `select`, or `find_by_sql` arguments.

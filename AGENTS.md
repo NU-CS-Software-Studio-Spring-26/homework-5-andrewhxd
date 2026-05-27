@@ -3,7 +3,7 @@
 A one-page brief for coding agents (Claude Code, Cursor, etc.) working in this repo.
 
 ## Stack
-Rails 8.1 sample todo app. SQLite (development/test, via `sqlite3` gem). Hotwire (turbo-rails + stimulus-rails) over the Propshaft asset pipeline with importmap-rails. Views are vanilla ERB partials — no Bootstrap, no Tailwind, no view components. Test framework is **Minitest** (Rails default), with Capybara + Selenium for system tests. Solid Queue / Solid Cache / Solid Cable are bundled but no app-specific jobs exist yet.
+Rails 8.1 sample todo app. SQLite (development/test, via `sqlite3` gem). Hotwire (turbo-rails + stimulus-rails) over the Propshaft asset pipeline with importmap-rails. Views are vanilla ERB partials - no Bootstrap, no Tailwind, no view components. Test framework is **Minitest** (Rails default), with Capybara + Selenium for system tests. Solid Queue / Solid Cache / Solid Cable are bundled but no app-specific jobs exist yet.
 
 ## Commands
 - Setup: `bin/setup` (installs gems, prepares db). One-off: `bin/rails db:prepare`
@@ -21,9 +21,9 @@ Rails 8.1 sample todo app. SQLite (development/test, via `sqlite3` gem). Hotwire
 - Migrations must be reversible; prefer `change` blocks. Use `bin/rails generate migration` rather than hand-writing files.
 
 ## Don'ts
-- No new gems without explicit approval — the dependency surface is intentionally small.
+- No new gems without explicit approval - the dependency surface is intentionally small.
 - No inline `<script>` tags in ERB; behavior goes through Stimulus controllers or Turbo.
 - Never `skip_before_action :verify_authenticity_token` or otherwise weaken CSRF.
 - Do not seed real or scraped user data; `db/seeds.rb` only, with synthetic values.
-- Do not import models, migrations, or partials from other student projects — keep the schema scoped to this todo app.
+- Do not import models, migrations, or partials from other student projects - keep the schema scoped to this todo app.
 - Do not use `rescue Exception` or swallow errors silently.
